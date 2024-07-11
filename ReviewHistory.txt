@@ -1,0 +1,42 @@
+2018 11 06  Bug introducing thickness from commandline (-thk flag) has been corrected.  
+
+2017 05 20  In the case of problems with Rayleigh wave dispersion curves, the program does compute Love waves and continues. Reporting errors in report.dat
+            does not stop the program (an H/V curve can be calculated). New message in report.dat stating where dispersion curve calculations stop due to errors
+
+2016 02 02  Normalization of model has been turned off for better compatibility with the root-search algorithm
+
+2016 01 31  If the frequency list is loaded from file (-ff) and number of frequencies (-nf) is missing, the file will be read twice in order to
+            allocate the frequency vector (X) after the first reading (-nf is recommended to speed up). In previous versions the vector was allocated
+            for 500 frequencies and exceeding frequencies were ignored.
+
+2016 01 31  'Undefined ground model' message has been incorporated 
+
+2015 12 17  nu_val_from_slow and gam_val_from_slow created. Inputs are slowness from subrroutine dispersion converted in double precission.
+            The case of zero output is corrected increasing slightly the slowness slow=1/c (that is, moving to inhomogeneus wave)
+
+2015 12 17  Vectors with velocity vs period dispersion curves are removed from GR and GL
+
+2015 12 17  Version 0.13
+
+2015 12 16  Minor issues for compilation under Visual Fortran 6.6 fixed. 
+
+2015 12 15  Bug related with not initialized variable SALIDA in HV.f90 fixed. Love modes can be requested alone. 
+
+2015 12 15  Defaults for -apsv and -ash set to 1e-5. 
+
+2015 12 15  Help revised (-h flag) 
+
+2015 12 12  The -hv output has been simplified to (FREQUENCY,H/V) pairs.
+
+2015 12 12  Bug fixed. Reading file names including paths from command line. This feature was not properly working under Linux. 
+
+2015 11 27  Bug fixed in versions of the BW subroutine using with GOTO instead of DO ik=1,Nks+1. The case ik=1 was wrong.
+
+2015 11 26  DO loops on the frequency in GR.f90 and GL.f90 are parellelized for the compiler gcc 5.2.0 which uses OpenMP
+            The same is done for calls to BWR in HV.f90. BWR has been modified to pass the circular frequency through the
+            argument list, instead of using the global variable G_OMEGA
+            File README.TXT is updated with references to that free compiler.
+
+2015 11 26  A bug in the definition of variable DIFF in subroutine HALVING is fixed.
+
+            
